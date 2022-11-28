@@ -1,0 +1,46 @@
+{% extends 'backend.html.twig' %}
+
+{% block title %}Asignaciones
+{% endblock %}
+
+{% block article %}
+
+	<div class="float-end">
+		<a href="{{ path('app_asignacion_new') }}" class="btn btn-primary text-right">Insertar</a>
+	</div>
+
+	<h1>Asignaciones</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Cantidad</th>
+				<th>Fecha</th>
+                <th>Entidad</th>
+				<th>Chapa</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for asignacion in asignacions %}
+				<tr>
+					<td>{{ asignacion.id }}</td>
+					<td>{{ asignacion.cantidad }}</td>
+					<td>{{ asignacion.fecha ? asignacion.fecha|date('Y-m-d') : '' }}</td>
+                    <td>{{  asignacion.empresa.alias }}</td>
+					<td>{{ asignacion.chapa }}</td>
+					<td>
+						<a href="{{ path('app_asignacion_show', {'id': asignacion.id}) }}">Detalles</a>
+						<a href="{{ path('app_asignacion_edit', {'id': asignacion.id}) }}">Editar</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">No hay registros</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

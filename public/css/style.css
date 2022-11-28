@@ -1,0 +1,14 @@
+body {
+    background: url(../images/linen_bg.jpg)
+}
+
+.back-white{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    padding: 5px 15px;
+}
+
+a {
+    text-decoration: none;
+}

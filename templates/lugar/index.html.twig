@@ -1,0 +1,39 @@
+{% extends 'backend.html.twig' %}
+
+{% block title %}Lugares{% endblock %}
+
+{% block article %}
+
+	<div class="float-end">
+		<a href="{{ path('app_lugar_new') }}" class="btn btn-primary text-right">Insertar</a>
+	</div>
+    <h1>Lugares</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Aciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lugar in lugars %}
+            <tr>
+                <td>{{ lugar.id }}</td>
+                <td>{{ lugar.nombre }}</td>
+                <td>
+                    <a href="{{ path('app_lugar_show', {'id': lugar.id}) }}">Detalles</a>
+                    <a href="{{ path('app_lugar_edit', {'id': lugar.id}) }}">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No hay registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

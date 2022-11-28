@@ -1,0 +1,13 @@
+{% extends 'backend.html.twig' %}
+
+{% block title %}Edit Asignacion{% endblock %}
+
+{% block article %}
+    <h1>Edit Asignacion</h1>
+
+    {{ include('asignacion/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_asignacion_index') }}">back to list</a>
+
+    {{ include('asignacion/_delete_form.html.twig') }}
+{% endblock %}

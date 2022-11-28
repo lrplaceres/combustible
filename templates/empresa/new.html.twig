@@ -1,0 +1,15 @@
+{% extends 'backend.html.twig' %}
+
+{% block title %}Nueva Entidad
+{% endblock %}
+
+{% block article %}
+	<h1 class="text-center back-white">Insertar Entidad</h1>
+
+	<div class="back-white">
+		{{ include('empresa/_form.html.twig') }}
+	</div>
+    
+	<a href="{{ path('app_empresa_index') }}" class="btn btn-secondary">Entidades</a>
+
+{% endblock %}
