@@ -1,11 +1,14 @@
 {% extends 'backend.html.twig' %}
 
-{% block title %}New Lugar{% endblock %}
+{% block title %}Nuevo Lugar
+{% endblock %}
 
 {% block article %}
-    <h1>Create new Lugar</h1>
+	<h1 class="text-center back-white">Insertar Lugar</h1>
 
-    {{ include('lugar/_form.html.twig') }}
+	<div class="back-white">
+		{{ include('lugar/_form.html.twig') }}
+	</div>
 
-    <a href="{{ path('app_lugar_index') }}">back to list</a>
+	<a href="{{ path('app_lugar_index') }}" class="btn btn-secondary">Lugares</a>
 {% endblock %}

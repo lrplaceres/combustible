@@ -1,13 +1,18 @@
 {% extends 'backend.html.twig' %}
 
-{% block title %}Edit Empresa{% endblock %}
+{% block title %}Editar Entidad
+{% endblock %}
 
 {% block article %}
-    <h1>Edit Empresa</h1>
+	<h1 class="text-center back-white">Editar Entidad</h1>
 
-    {{ include('empresa/_form.html.twig', {'button_label': 'Update'}) }}
+	<div class="back-white">
+		{{ include('empresa/_form.html.twig', {'button_label': 'Aceptar'}) }}
+	</div>
 
-    <a href="{{ path('app_empresa_index') }}">back to list</a>
+	<div class="btn-group">
+		<a href="{{ path('app_empresa_index') }}" class="btn btn-secondary">Entidades</a>
+		{{ include('empresa/_delete_form.html.twig') }}
+	</div>
 
-    {{ include('empresa/_delete_form.html.twig') }}
 {% endblock %}

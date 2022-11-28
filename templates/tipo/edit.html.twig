@@ -1,13 +1,17 @@
 {% extends 'backend.html.twig' %}
 
-{% block title %}Edit Tipo{% endblock %}
+{% block title %}Editar Tipo
+{% endblock %}
 
 {% block article %}
-    <h1>Edit Tipo</h1>
+	<h1 class="text-center back-white">Editar Tipo</h1>
 
-    {{ include('tipo/_form.html.twig', {'button_label': 'Update'}) }}
+	<div class="back-white">
+		{{ include('tipo/_form.html.twig', {'button_label': 'Aceptar'}) }}
+	</div>
 
-    <a href="{{ path('app_tipo_index') }}">back to list</a>
-
-    {{ include('tipo/_delete_form.html.twig') }}
+	<div class="btn-group">
+		<a href="{{ path('app_tipo_index') }}" class="btn btn-secondary">Tipo</a>
+		{{ include('tipo/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

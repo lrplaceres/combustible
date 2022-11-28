@@ -3,9 +3,9 @@
 {% block title %}Tipo{% endblock %}
 
 {% block article %}
-    <h1>Tipo</h1>
+    <h1 class="text-center back-white">Tipo</h1>
 
-    <table class="table">
+    <table class="table table-striped table-hover back-white">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -18,9 +18,12 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_tipo_index') }}">back to list</a>
+	<div class="btn-group">
+    <a href="{{ path('app_tipo_index') }}" class="btn btn-secondary">Tipo</a>
 
-    <a href="{{ path('app_tipo_edit', {'id': tipo.id}) }}">edit</a>
+    <a href="{{ path('app_tipo_edit', {'id': tipo.id}) }}" class="btn btn-primary">Editar</a>
 
     {{ include('tipo/_delete_form.html.twig') }}
+
+    	</div>
 {% endblock %}

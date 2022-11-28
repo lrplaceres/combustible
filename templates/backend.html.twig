@@ -2,13 +2,15 @@
 
 {% block body %}
 
-{% block header %}
-    {% include "_navbar.html.twig" %}
-{% endblock %}
+	{% block header %}
+		{% include "_navbar.html.twig" %}
+	{% endblock %}
 
-{% block article %}{% endblock %}
+	<div class="container">
+		{% block article %}{% endblock %}
+	</div>
 
-{% block footer %}{% endblock %}
+	{% block footer %}{% endblock %}
 
 
 {% endblock %}

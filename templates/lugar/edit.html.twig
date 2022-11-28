@@ -1,13 +1,17 @@
 {% extends 'backend.html.twig' %}
 
-{% block title %}Edit Lugar{% endblock %}
+{% block title %}Editar Lugar
+{% endblock %}
 
 {% block article %}
-    <h1>Edit Lugar</h1>
+	<h1 class="text-center back-white">Editar Lugar</h1>
 
-    {{ include('lugar/_form.html.twig', {'button_label': 'Update'}) }}
+	<div class="back-white">
+		{{ include('lugar/_form.html.twig', {'button_label': 'Aceptar'}) }}
+	</div>
 
-    <a href="{{ path('app_lugar_index') }}">back to list</a>
-
-    {{ include('lugar/_delete_form.html.twig') }}
+	<div class="btn-group">
+		<a href="{{ path('app_lugar_index') }}" class="btn btn-secondary">Lugares</a>
+		{{ include('lugar/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

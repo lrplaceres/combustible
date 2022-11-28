@@ -1,11 +1,13 @@
 {% extends 'backend.html.twig' %}
 
-{% block title %}New Asignacion{% endblock %}
+{% block title %}Insertar Asignación{% endblock %}
 
 {% block article %}
-    <h1>Create new Asignacion</h1>
+	<h1 class="text-center back-white">Insertar Asignación</h1>
 
-    {{ include('asignacion/_form.html.twig') }}
+	<div class="back-white">
+		{{ include('asignacion/_form.html.twig') }}
+	</div>
 
-    <a href="{{ path('app_asignacion_index') }}">back to list</a>
+	<a href="{{ path('app_asignacion_index') }}" class="btn btn-secondary">Asignaciones</a>
 {% endblock %}

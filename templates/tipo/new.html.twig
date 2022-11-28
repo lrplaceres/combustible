@@ -1,11 +1,14 @@
 {% extends 'backend.html.twig' %}
 
-{% block title %}New Tipo{% endblock %}
+{% block title %}Insertar Tipo
+{% endblock %}
 
 {% block article %}
-    <h1>Create new Tipo</h1>
+	<h1 class="text-center back-white">Insertar Tipo</h1>
 
-    {{ include('tipo/_form.html.twig') }}
+	<div class="back-white">
+		{{ include('tipo/_form.html.twig') }}
+	</div>
 
-    <a href="{{ path('app_tipo_index') }}">back to list</a>
+	<a href="{{ path('app_tipo_index') }}" class="btn btn-secondary">Tipo</a>
 {% endblock %}

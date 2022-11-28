@@ -12,6 +12,7 @@
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
 			<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"/>
+			<link href="{{ asset('css/bootstrap-datepicker.min.css') }}" rel="stylesheet"/>
 			<link href="{{ asset('css/style.css') }}" rel="stylesheet"/>
 		{% endblock %}
 
@@ -19,10 +20,12 @@
 			{{ encore_entry_script_tags('app') }}
 			<!-- JavaScript Bundle with Popper -->
 			<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+			<script src="{{ asset('js/jquery-3.6.1.min.js') }}"></script>
+			<script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+			<script src="{{ asset('js/funciones.js') }}"></script>
 		{% endblock %}
 	</head>
 	<body>
-		<div class="container"> {% block body %}{% endblock %}
-			</div>
-		</body>
-	</html>
+		{% block body %}{% endblock %}
+	</body>
+</html>
