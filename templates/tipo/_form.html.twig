@@ -1,7 +1,7 @@
 {{ form_start(form) }}
 {{ form_widget(form) }}
 <div class="mb-3">
-	<button class="btn btn-success">{{ button_label|default('Aceptar') }}</button>
-	<button type="reset" class="btn btn-warning">Limpiar</button>
+	<button class="btn btn-success"><i class="ti ti-plus"></i> {{ button_label|default('Aceptar') }}</button>
+	<button type="reset" class="btn btn-warning"><i class="ti ti-refresh-alert"></i> Limpiar</button>
 </div>
 {{ form_end(form) }}

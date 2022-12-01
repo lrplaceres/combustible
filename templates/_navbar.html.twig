@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg b bg-light">
+<nav class="navbar navbar-expand-lg back-navbar">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="#">
 			<img src="{{ asset('images/icons-fuel.png') }}" alt="Bootstrap" width="60" height="48">
@@ -7,40 +7,51 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			<ul class="navbar-nav mb-2 mb-lg-0">
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="{{ path('app_asignacion_index') }}">Asignaci&oacute;n</a>
+					<a class="nav-link active" aria-current="page" href="{{ path('app_asignacion_index') }}">
+						<i class="ti ti-droplet"></i>
+						Asignaci&oacute;n</a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<i class="ti ti-settings"></i>
 						Configuraci&oacute;n
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a class="dropdown-item" href="{{ path('app_empresa_index') }}">Entidades</a>
+							<a class="dropdown-item" href="{{ path('app_empresa_index') }}">
+								<i class="ti ti-building-factory-2"></i>
+								Entidades</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ path('app_tipo_index') }}">Tipo</a>
+							<a class="dropdown-item" href="{{ path('app_tipo_index') }}">
+								<i class="ti ti-list"></i>
+								Tipo</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="{{ path('app_lugar_index') }}">Lugar</a>
-						</li>						
+							<a class="dropdown-item" href="{{ path('app_lugar_index') }}">
+								<i class="ti ti-map-pin"></i>
+								Lugar</a>
+						</li>
 					</ul>
 				</li>
 			</ul>
 
-			<form class="d-flex" role="search">
-				<div class="input-group mb-3">
-					<input class="form-control" type="search" placeholder="Criterio de búsqueda" aria-label="Search">
+			
 
-
+			<form class="d-flex" role="search" method="post" action="{{ path('app_busqueda') }}" style="margin-left:10%">
+				<div class="input-group">
+					<input class="form-control" type="search" placeholder="Criterio de búsqueda" aria-label="Search" name="c" required>
 					<div class="input-group-text" data-bs-toggle="tooltip" data-bs-title="Buscar por Entidad">
-						<input class="form-check-input mt-0" type="radio" value="" checked name="b">
+						<input class="form-check-input mt-0" type="radio" value="entidad" checked name="b">
 					</div>
 					<div class="input-group-text" data-bs-toggle="tooltip" data-bs-title="Buscar por Chapa">
-						<input class="form-check-input mt-0" type="radio" value="" name="b">
+						<input class="form-check-input mt-0" type="radio" value="chapa" name="b">
 					</div>
-					<button class="btn btn-success" type="submit">Buscar</button>
+					<button class="btn btn-success" type="submit">
+						<i class="ti ti-search"></i>
+						Buscar</button>
 				</div>
 			</form>
 

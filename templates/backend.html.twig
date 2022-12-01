@@ -10,7 +10,9 @@
 		{% block article %}{% endblock %}
 	</div>
 
-	{% block footer %}{% endblock %}
+	{% block footer %}
+		{% include "_offcanvas.html.twig" %}
+	{% endblock %}
 
 
 {% endblock %}

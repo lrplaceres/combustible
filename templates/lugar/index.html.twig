@@ -11,7 +11,7 @@
 		</div>
 		<div class="col-2">
 			<div class="d-grid gap-2 mx-auto">
-				<a href="{{ path('app_lugar_new') }}" class="btn btn-primary text-right btn-lg" data-bs-toggle="tooltip" data-bs-title="Insertar elemento">Insertar</a>
+				<a href="{{ path('app_lugar_new') }}" class="btn btn-primary text-right btn-lg" data-bs-toggle="tooltip" data-bs-title="Insertar elemento"><i class="ti ti-text-plus"></i> Insertar</a>
 			</div>
 		</div>
 
@@ -36,8 +36,8 @@
 						<td><a href="{{ path('app_lugar_show', {'id': lugar.id}) }}" data-bs-toggle="tooltip" data-bs-title="Mostrar detalles">{{ lugar.id }}</a></td>
 						<td>{{ lugar.nombre }}</td>
 						<td>
-							<a href="{{ path('app_lugar_show', {'id': lugar.id}) }}" data-bs-toggle="tooltip" data-bs-title="Mostrar detalles">Detalles</a>
-							<a href="{{ path('app_lugar_edit', {'id': lugar.id}) }}" data-bs-toggle="tooltip" data-bs-title="Editar elemento">Editar</a>
+							<a href="{{ path('app_lugar_show', {'id': lugar.id}) }}" data-bs-toggle="tooltip" data-bs-title="Mostrar detalles"><i class="ti ti-info-square"></i></a>
+							<a href="{{ path('app_lugar_edit', {'id': lugar.id}) }}" data-bs-toggle="tooltip" data-bs-title="Editar elemento"><i class="ti ti-edit"></i></a>
 						</td>
 					</tr>
 				{% else %}

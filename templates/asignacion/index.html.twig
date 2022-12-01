@@ -11,7 +11,9 @@
 		</div>
 		<div class="col-2">
 			<div class="d-grid gap-2 mx-auto">
-				<a href="{{ path('app_asignacion_new') }}" class="btn btn-primary text-right btn-lg" data-bs-toggle="tooltip" data-bs-title="Insertar elemento">Insertar</a>
+				<a href="{{ path('app_asignacion_new') }}" class="btn btn-primary text-right btn-lg" data-bs-toggle="tooltip" data-bs-title="Insertar elemento">
+					<i class="ti ti-text-plus"></i>
+					Insertar</a>
 
 			</div>
 		</div>
@@ -28,6 +30,8 @@
 			<tr>
 				<th>Id</th>
 				<th>Cantidad</th>
+				<th>Tipo</th>
+				<th>Lugar</th>
 				<th>Fecha</th>
 				<th>Entidad</th>
 				<th>Chapa</th>
@@ -41,20 +45,35 @@
 						<a href="{{ path('app_asignacion_show', {'id': asignacion.id}) }}" data-bs-toggle="tooltip" data-bs-title="Mostrar detalles">{{ asignacion.id }}</a>
 					</td>
 					<td>{{ asignacion.cantidad }}</td>
+					<td>{{ asignacion.tipo }}</td>
+					<td>{{ asignacion.lugar }}</td>
 					<td>{{ asignacion.fecha ? asignacion.fecha|date('Y-m-d') : '' }}</td>
-					<td>{{  asignacion.empresa.alias }}</td>
-					<td>{{ asignacion.chapa }}</td>
 					<td>
-						<a href="{{ path('app_asignacion_show', {'id': asignacion.id}) }}" data-bs-toggle="tooltip" data-bs-title="Mostrar detalles">Detalles</a>
-						<a href="{{ path('app_asignacion_edit', {'id': asignacion.id}) }}" data-bs-toggle="tooltip" data-bs-title="Editar elemento">Editar</a>
+						<a class="link-dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+							{{ asignacion.empresa.alias }}</a>
+					</td>
+					<td>
+						<a class="link-dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+							{{ asignacion.chapa }}
+						</a>
+					</td>
+
+					<td>
+						<div class="tabler-icon"></div>
+						<a href="{{ path('app_asignacion_show', {'id': asignacion.id}) }}" data-bs-toggle="tooltip" data-bs-title="Mostrar detalles">
+							<i class="ti ti-info-square"></i>
+						</a>
+						<a href="{{ path('app_asignacion_edit', {'id': asignacion.id}) }}" data-bs-toggle="tooltip" data-bs-title="Editar elemento">
+							<i class="ti ti-edit"></i>
+						</a>
 					</td>
 				</tr>
-			{% else %}
-				<tr>
-					<td colspan="5">No hay registros</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
 
-{% endblock %}
+			</tr>
+		{% else %}
+			<tr>
+				<td colspan="7">No hay registros</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>{% endblock %}

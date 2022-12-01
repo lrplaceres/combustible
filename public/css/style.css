@@ -12,3 +12,10 @@ body {
 a {
     text-decoration: none;
 }
+
+.back-navbar{
+    background-color: #d1d1d1a6;    
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    
+}
+    

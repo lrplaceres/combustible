@@ -39,6 +39,28 @@ class AsignacionRepository extends ServiceEntityRepository
         }
     }
 
+    public function buscarXchapa($value): array
+    {
+        return $this->createQueryBuilder('n')
+            ->where('n.chapa LIKE :val')
+            ->setParameter('val', '%'.$value.'%')
+            ->orderBy('n.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function buscarXentidad($value): array
+    {
+        return $this->createQueryBuilder('n')
+            ->orWhere('e.alias LIKE :val')
+            ->orWhere('e.nombre LIKE :val')
+            ->join('n.empresa', 'e')
+            ->setParameter('val', '%'.$value.'%')
+            ->orderBy('n.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Asignacion[] Returns an array of Asignacion objects
 //     */

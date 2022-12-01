@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Asignacion;
 use App\Form\AsignacionType;
 use App\Repository\AsignacionRepository;
+use Exception;
+use PhpParser\Node\Stmt\TryCatch;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -66,13 +68,32 @@ class AsignacionController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_asignacion_delete', methods: ['POST'])]
+    #[Route('/{id}/delete', name: 'app_asignacion_delete', methods: ['POST'])]
     public function delete(Request $request, Asignacion $asignacion, AsignacionRepository $asignacionRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$asignacion->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $asignacion->getId(), $request->request->get('_token'))) {
             $asignacionRepository->remove($asignacion, true);
         }
 
         return $this->redirectToRoute('app_asignacion_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+
+    #[Route('/busqueda', name: 'app_busqueda', methods: ['POST'])]
+    public function buscar(Request $request, AsignacionRepository $asignacionRepository): Response
+    {
+        $criterio = $request->get('c');
+        $tipo = $request->get('b');
+        $busqueda = null;
+
+        if ($tipo == 'entidad') {
+            $busqueda = $asignacionRepository->buscarXentidad($criterio);
+        } elseif ($tipo == 'chapa') {
+            $busqueda = $asignacionRepository->buscarXchapa($criterio);
+        }        
+            return $this->render('asignacion/index.html.twig', [
+                'asignacions' => $busqueda,
+            ]);
+    
     }
 }
