@@ -90,10 +90,29 @@ class AsignacionController extends AbstractController
             $busqueda = $asignacionRepository->buscarXentidad($criterio);
         } elseif ($tipo == 'chapa') {
             $busqueda = $asignacionRepository->buscarXchapa($criterio);
-        }        
-            return $this->render('asignacion/index.html.twig', [
-                'asignacions' => $busqueda,
-            ]);
-    
+        }
+        return $this->render('asignacion/index.html.twig', [
+            'asignacions' => $busqueda,
+        ]);
     }
+
+    #[Route('/{id}/xentidad', name: 'app_asignacion_xentidad', methods: ['GET'])]
+    public function xentidad(Request $request,  AsignacionRepository $asignacionRepository): Response
+    {
+        $param = $request->get('id');
+        $datos = $asignacionRepository->buscarEntidad($param);
+        return $this->render('asignacion/offcanvas.html.twig', [
+            'asignacions' => $datos,
+        ]);
+    }
+    #[Route('/{id}/xchapa', name: 'app_asignacion_xchapa', methods: ['GET'])]
+    public function xchapa(Request $request,  AsignacionRepository $asignacionRepository): Response
+    {
+        $param = $request->get('id');
+        $datos = $asignacionRepository->buscarChapa($param);
+        return $this->render('asignacion/offcanvas2.html.twig', [
+            'asignacions' => $datos,
+        ]);
+    }
+
 }

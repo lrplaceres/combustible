@@ -7,5 +7,11 @@ $(document).ready(function () {
     const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bootstrap.Offcanvas(offcanvasEl))
     //$('.datepicker').datepicker();
 
-
+    $(".detalles").click(function () {
+        link = $(this).attr('href')
+        $.get(link, function(data, status){
+            $("#offcanvas-body").html(data);
+          });
+        
+    });
 });

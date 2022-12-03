@@ -49,6 +49,16 @@ class AsignacionRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function buscarChapa($value): array
+    {
+        return $this->createQueryBuilder('n')
+            ->where('n.chapa = :val')
+            ->setParameter('val', $value)
+            ->orderBy('n.fecha', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
     public function buscarXentidad($value): array
     {
         return $this->createQueryBuilder('n')
@@ -57,6 +67,17 @@ class AsignacionRepository extends ServiceEntityRepository
             ->join('n.empresa', 'e')
             ->setParameter('val', '%'.$value.'%')
             ->orderBy('n.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function buscarEntidad($value): array
+    {
+        return $this->createQueryBuilder('n')
+            ->orWhere('e.alias = :val')
+            ->join('n.empresa', 'e')
+            ->setParameter('val', $value)
+            ->orderBy('n.fecha', 'DESC')
             ->getQuery()
             ->getResult();
     }

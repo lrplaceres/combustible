@@ -1,0 +1,27 @@
+<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>Cantidad</th>
+			<th>Tipo</th>
+			<th>Fecha</th>
+			<th>Entidad</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for asignacion in asignacions %}
+			<tr>
+				<td>{{ asignacion.cantidad }}</td>
+				<td>{{ asignacion.tipo }}</td>
+				<td>{{ asignacion.fecha ? asignacion.fecha|date('Y-m-d') : '' }}</td>
+				<td>
+					{{ asignacion.empresa.alias }}
+				</td>
+			</tr>
+
+		</tr>
+	{% else %}
+		<tr>
+			<td colspan="4">No hay registros</td>
+		</tr>
+	{% endfor %}
+</tbody></table>
